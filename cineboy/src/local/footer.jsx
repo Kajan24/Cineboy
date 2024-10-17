@@ -5,7 +5,7 @@ export default function Footer() {
     const navigate = useNavigate();
 
     return (
-        <footer className="flex flex-col bg-cineblue lg:flex-row border-t-2 border-white items-center justify-between w-[90%] mx-auto h-auto lg:h-[30vh] text-green-600">
+        <footer className="z-10 flex flex-col bg-cineblue lg:flex-row border-t-2 border-white/50 items-center justify-between w-[90%] mx-auto h-auto lg:h-[30vh]">
             <div className='w-full lg:w-2/6 flex justify-center items-center p-5 flex-col'>
                 <img
                     src={logo}

@@ -2,14 +2,19 @@
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  /* background-color: #000309; */
 }
 
 body {
   background-color: #000309;
 }
 
+main {
+  background-color: #000309 !important;
+}
+
 #root {
-  height: 100vh;
+  height: auto;
 }
 
 .embla {

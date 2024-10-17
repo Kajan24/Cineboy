@@ -7,7 +7,7 @@ const numberWithinRange = (number, min, max) =>
     Math.min(Math.max(number, min), max);
 
 const EmblaCarousel = (props) => {
-    const { slides, options } = props;
+    const { slides, options, onSlideChange } = props; // Ajoutez onSlideChange ici
     const [emblaRef, emblaApi] = useEmblaCarousel(options);
     const tweenFactor = useRef(0);
 
@@ -61,19 +61,23 @@ const EmblaCarousel = (props) => {
             .on('reInit', setTweenFactor)
             .on('reInit', tweenOpacity)
             .on('scroll', tweenOpacity)
-            .on('slideFocus', tweenOpacity);
-    }, [emblaApi, tweenOpacity]);
+            .on('slideFocus', tweenOpacity)
+            .on('select', () => {
+                const selectedIndex = emblaApi.selectedScrollSnap();
+            });
+    }, [emblaApi, tweenOpacity, onSlideChange]);
 
     return (
-        <div className="embla mt-5">
+        <div className="embla mt-5 md:w-[20vw]">
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
                     {slides.map((slide, index) => (
-                        <div className="embla__slide" key={index}>
+                        <div className="embla__slide flex justify-center items-center relative" key={index}>
+                            <div className="absolute inset-0 backdrop-blur-md z-0"></div>
                             <img
-                                className="embla__slide__img rounded-lg h-[40vh] w-auto"
-                                src={slide}  // Utilisation directe de l'URL ou de la source locale
-                                alt={`Slide ${index + 1}`}  // Description alternative améliorée
+                                className="embla__slide__img relative z-10 rounded-lg h-[40vh] w-auto"
+                                src={slide}
+                                alt={`Slide ${index + 1}`}
                             />
                         </div>
                     ))}

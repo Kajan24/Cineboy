@@ -9,14 +9,18 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-      <Footer />
-    </Router>
-  )
+    <div className="flex flex-col min-h-screen">
+      <Router>
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;
