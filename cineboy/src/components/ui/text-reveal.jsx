@@ -25,7 +25,7 @@ export const TextRevealByWord = ({
         }>
         <p
           className={
-            "flex flex-wrap p-4 text-3xl font-bold text-white md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-5xl"
+            "flex flex-wrap p-4 text-5xl leading-tight font-bold text-white md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-5xl"
           }>
           {words.map((word, i) => {
             const start = i / words.length;

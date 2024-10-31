@@ -10,9 +10,11 @@ import newsletterImg from "../assets/newsletter.svg";
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Star from '@/assets/star.svg';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
     const OPTIONS = { loop: true, autoplay: true };
+    const navigate = useNavigate();
 
     const SLIDES = [
         Avatar2,
@@ -20,6 +22,10 @@ export default function Home() {
         Equalizer,
         FF3
     ];
+
+    const handleAllMovieBtn = () => {
+        navigate("/allMovies", { replace: true });
+    }
 
     return (
         <main className='flex flex-col items-center gap-2 pt-10'>
@@ -40,7 +46,7 @@ export default function Home() {
                         <Button variant="cineYellow" className="w-2/4">Réserver</Button>
                     </div>
                 </div>
-                <Button variant="default" className="w-full">Voir tout l'affiche</Button>
+                <Button onClick={handleAllMovieBtn} variant="default" className="w-full" >Voir tout l'affiche</Button>
             </section>
 
             <section className='h-auto w-[90vw] flex items-center justify-center'>
